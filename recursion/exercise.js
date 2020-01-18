@@ -1,20 +1,21 @@
+//a function that loops through the numbers n down to 0
 function loops(num) {
     while (num > 0) {
         console.log(num);
         num--;
     }
-}
+} // loops(5);
 
-// loops(5);
+//try looping using recursion
 function recursiveLoop(num) {
     while (num > 0) {
         console.log(num);
         return recursiveLoop(num - 1);
     }
-}
+} // recursiveLoop(5);
 
-// recursiveLoop(5);
-
+//exponent function that takes two arguments base, and expo, 
+//uses a while loop to return the exponenet value of the base.
 function exponent(base, expo) {
     if (expo === 0) {
         return 1;
@@ -23,21 +24,18 @@ function exponent(base, expo) {
             return base ** expo;
         }
     }
-}
+} // exponent(7, 2);
 
-// exponent(7, 2);
+//performing exponent function with recursion
+function recursiveExponent(base, expo) {
+    if (expo === 1) {
+        return base;
+    }
 
-function RecursiveExponent(base, expo) {
-    console.log(base ** expo);
-    return RecursiveExponent(base, expo);
-}
+    return base * recursiveExponent(base, --expo)
+} // RecursiveExponent(7, 2);
 
-// RecursiveExponent(7, 2);
-
-// function recursiveMultiplier(arr, num) {
-
-// }
-
+//reverse the elements in an array without recursion
 // function recursiveReverse(arr) {
 //     let reverseArray = [];
 //     for (let i = arr.length - 1; i >= 0; i--) {
@@ -61,6 +59,17 @@ function recursiveReverse(arr) {
     addItems(arr);
 
     return reversedArr;
+} // recursiveReverse([23, 45, 676, 678])
+
+function recursiveMultiplier(arr, num) {
+    if (arr.length === 0) {
+        return arr;
+    }
+
+    let last = arr.pop();
+    recursiveMultiplier(arr, num);
+    arr.push(last * num);
+    return arr;
 }
 
-recursiveReverse([23, 45, 676, 678])
+recursiveMultiplier([1, 2, 3], 3);
