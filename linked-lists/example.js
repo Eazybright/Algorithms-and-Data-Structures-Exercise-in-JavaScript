@@ -25,7 +25,7 @@ LinkedList.prototype.push = function(data) {
 
     current.next = node;
   }
-  
+   
   // Increment the length
   this._length++;
 }
